@@ -51,12 +51,15 @@ class NewSpider(scrapy.Spider):
         )
 
 # a unit test to test out the code
+import unittest
+
 class TestMyProgram(unittest.TestCase):
-    url2 = 'https://brickset.com/sets/year-2005'
-    headers = {'User-Agent': 'Mobile'}
-    rh = requests.get(url2, headers=headers)
-    statuscode = rh.status_code
-    user_agent = rh.request.headers
+
+    def test_EngineType(self):
+        self.assertEqual(r.status_code, 200)
+
+if __name__ == '__main__':
+    unittest.main()
 
 #testing the status code
     def test_statuscode(self):
