@@ -61,7 +61,7 @@ class TestMyProgram(unittest.TestCase):
         self.assertEqual(TestMyProgram.statuscode, 200)
 
     def test_headers(self):
-        self.assertTrue(TestMyProgram.user_agents, "Mobile")
+        self.assertTrue(TestMyProgram.user_agent, "Mobile")
 
 
 if __name__ == '__main__':
