@@ -28,6 +28,7 @@ print("**********")
 print(response.request.headers)
 print("**********")
 
+#Scrapying img link from the url
 class NewSpider(scrapy.Spider):
     name = "new_spider"
     start_urls = ['https://brickset.com/sets/year-2005']
@@ -40,7 +41,7 @@ class NewSpider(scrapy.Spider):
                     'Image Link': x.xpath(newsel).extract_first(),
             }
 
-
+# a loop to scan the next page of the url
         Page_selector = '.next a ::attr(href)'
         next_page = response.css(Page_selector).extract_first()
         if next_page:
@@ -49,7 +50,7 @@ class NewSpider(scrapy.Spider):
                         callback=self.parse
         )
 
-
+# a unit test to test out the code
 class TestMyProgram(unittest.TestCase):
     url2 = 'https://brickset.com/sets/year-2005'
     headers = {'User-Agent': 'Mobile'}
@@ -57,9 +58,11 @@ class TestMyProgram(unittest.TestCase):
     statuscode = rh.status_code
     user_agent = rh.request.headers
 
+#testing the status code
     def test_statuscode(self):
         self.assertEqual(TestMyProgram.statuscode, 200)
 
+#testing the user-agent
     def test_headers(self):
         self.assertTrue(TestMyProgram.user_agent, "Mobile")
 
