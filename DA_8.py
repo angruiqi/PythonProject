@@ -63,10 +63,10 @@ class TestMyProgram(unittest.TestCase):
         self.assertEqual(TestMyProgram.statuscode, 200)
 
 #testing the user-agent
-    #testing the user-agent
     def test_headers(self):
         self.assertTrue(TestMyProgram.user_agent, "Mobile")
 
 
+        
 if __name__ == '__main__':
     unittest.main()
