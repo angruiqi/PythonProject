@@ -42,7 +42,13 @@ class NewSpider(scrapy.Spider):
                     'Image Link': x.xpath(newsel).extract_first(),
             }
 
-
+# a loop to scan the next page of the url
+        Page_selector = '.next a ::attr(href)'
+        next_page = response.css(Page_selector).extract_first()
+        if next_page:
+                yield scrapy.Request(
+                        response.urljoin(next_page),
+                        callback=self.parse
         )
 
 # a unit test to test out the code
