@@ -8,6 +8,7 @@ url = "https://brickset.com/sets/year-2005"
 user_agent = {'User-Agent': 'Mobile'}
 r = requests.get(url)
 
+#Status Code
 print("Status code:")
 print("\t *", r.status_code)
 
